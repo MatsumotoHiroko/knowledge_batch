@@ -22,8 +22,10 @@ def run_post_api(d):
               },
               'template': '[システム]redmine移行用',
               'templateItems': [
-                  'label': '[必須]担当者名、対応者名',
-                  'value': d['staff']
+                  {
+                      'label': '[必須]担当者名、対応者名',
+                      'value': d['staff']
+                  }
               ],
               'title': d['title'],
               'content': d['content']
