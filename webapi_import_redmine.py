@@ -14,8 +14,10 @@ def run_post_api(d):
               'publicFlag': 1,
               'editors': {
                   'groups': [
-                      'label': '2'
-                      'value': '[GROUP] [システム]EC部'
+                      {
+                          'label': '2',
+                          'value': '[GROUP] [システム]EC部'
+                      }
                   ],
                   'users': []
               },
