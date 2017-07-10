@@ -13,7 +13,10 @@ def run_post_api(d):
               'tags': [],
               'publicFlag': 1,
               'editors': {
-                  'groups': ['[GROUP] [システム]EC部'],
+                  'groups': [
+                      'label': '2'
+                      'value': '[GROUP] [システム]EC部'
+                  ],
                   'users': []
               },
               'viewers': {
