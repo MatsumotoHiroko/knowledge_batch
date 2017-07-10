@@ -4,26 +4,29 @@ import json
 import requests
 import pandas as pd
 
-api_url = 'http://192.168.11.202:8080/knowledge'
+api_url = 'http://192.168.11.202:8080/knowledge/api/knowledges'
 api_token = 'API TOKEN'
 db_url = 'postgresql://postgres@localhost:5432/knowledge'
-def run_post_api(df):
+def run_post_api(d):
     query = {
               #'private_token': api_token,
               'tags': [],
               'publicFlag': 1,
               'editors': {
-                  'groups': [],
+                  'groups': ['[GROUP] [システム]EC部'],
                   'users': []
               },
               'viewers': {
                   'groups': [],
                   'users': []
               },
-              'template': 'redmine移行用',
-              'templateItems': [],
-              'title': df['title'],
-              'content': df['content']
+              'template': '[システム]redmine移行用',
+              'templateItems': [
+                  'label': '[必須]担当者名、対応者名',
+                  'value': d['staff']
+              ],
+              'title': d['title'],
+              'content': d['content']
             }
     
     headers = {
