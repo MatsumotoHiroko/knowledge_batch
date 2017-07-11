@@ -11,13 +11,9 @@ def run_post_api(d):
     query = {
               #'private_token': api_token,
               'tags': [],
-              'publicFlag': 1,
+              'publicFlag': 2,
               'editors': {
-                  'groups': [
-                      {
-                          'id': '4',
-                      }
-                  ],
+                  'groups': [],
                   'users': []
               },
               'viewers': {
