@@ -15,14 +15,17 @@ def run_post_api(d):
               'editors': {
                   'groups': [
                       {
-                          'label': '2',
-                          'value': '[GROUP] [システム]EC部'
+                          'id': '4',
                       }
                   ],
                   'users': []
               },
               'viewers': {
-                  'groups': [],
+                  'groups': [
+                      {
+                          'id': '4',
+                      }
+                  ],
                   'users': []
               },
               'template': '[システム]redmine移行用',
