@@ -53,7 +53,7 @@ def run_post_api(d):
     print(r.headers)
 
 for dirname in glob.iglob(csv_dir + '/*'):
-    if os.path.isdir(dirname)
+    if os.path.isdir(dirname):
         print(dirname)
         for filename in glob.iglob(dirname + '/*.csv'):
             print(filename)
