@@ -3,10 +3,12 @@
 import json
 import requests
 import pandas as pd
+import glob
 
 api_url = 'http://192.168.11.202:8080/knowledge/api/knowledges'
 api_token = 'API TOKEN'
 db_url = 'postgresql://postgres@localhost:5432/knowledge'
+csv_dir = './csv'
 def run_post_api(d):
     query = {
               #'private_token': api_token,
@@ -49,10 +51,11 @@ def run_post_api(d):
     print(r.headers)
 
 
-# ['#', 'ステータス', 'プロジェクト', 'トラッカー', '優先度', '題名', '担当者', 'カテゴリ', '対象バージョン', '作成者', '開始日', '期日', '進捗 %', '予定工数', '親チケット', '作成日', '更新日', 'PL', 'タグ', '説明']
-df = pd.read_csv('redmine_export.csv', header=1, names=('index', 'status', 'project', 'tracker', 'priority', 'title', 'staff', 'category', 'version', 'creator', 'started_at', 'limited_at', 'progress_rate', 'workload', 'parent_ticket', 'insert_datetime', 'update_datetime', 'pl', 'tag', 'content'))
-df = df.reindex_axis(['title', 'content', 'staff'], axis=1)
-dictionary = df.T.to_dict().values()
-for d in dictionary:
-    run_post_api(d)
-    break
+for filename in glob.iglob(csv_dir + '/*.csv')
+  # ['#', 'ステータス', 'プロジェクト', 'トラッカー', '優先度', '題名', '担当者', 'カテゴリ', '対象バージョン', '作成者', '開始日', '期日', '進捗 %', '予定工数', '親チケット', '作成日', '更新日', 'PL', 'タグ', '説明']
+  df = pd.read_csv(filename, header=1, names=('index', 'status', 'project', 'tracker', 'priority', 'title', 'staff', 'category', 'version', 'creator', 'started_at', 'limited_at', 'progress_rate', 'workload', 'parent_ticket', 'insert_datetime', 'update_datetime', 'pl', 'tag', 'content'))
+  df = df.reindex_axis(['title', 'content', 'staff'], axis=1)
+  dictionary = df.T.to_dict().values()
+  for d in dictionary:
+      #run_post_api(d)
+      break
