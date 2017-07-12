@@ -4,7 +4,7 @@ import json
 import requests
 
 knowledge_id = '43'
-url = 'http://192.168.11.202:8080/knowledge/api/knowledges' + knowledge_id
+url = 'http://192.168.11.202:8080/knowledge/api/knowledges/' + knowledge_id
 token = 'Access token'
 
 query = {
